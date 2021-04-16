@@ -1,13 +1,13 @@
 # pubScribe
-Light weight middleware layer to multiple underlying databases and publish / subscribe software
+Light-weight middleware layer to enable applications to support multiple underlying databases and publish / subscribe software for time series data
 
 Copyright(C) 2021, BrucesHobbies,
 All Rights Reserved
 
 # PubScribe(TM) Project Overview
-pubScribe provides a very light weight middleware layer to applications to free them of the specific database interface function calls and allow the ultimate end users the freedom to choose their database and/or publish/subscribe middleware.
+pubScribe provides a very light-weight middleware layer to applications to free them of the specific database interface function calls and allow the ultimate end users the freedom to choose their database and/or publish/subscribe middleware for time series data.
 
-It was developed in response to requests of users wanting a different underlying database or publish / subscribe layer. The intent is to be agnostic to the particular underlying software layers to enable a larger user base for the application layer software.
+It was developed in response to requests of users wanting a different underlying database or publish / subscribe layer. The intent is to be indifferent to the particular underlying software layers to enable a larger user base for the application layer software.
 
 Features:
 - Data logging (typically a time series of records)
@@ -25,14 +25,16 @@ Features:
     - Cellular
     - APRS
 
-- Send status and alert messages via email or SMS to a cell phone which is useful or monitoring home/vehicle/out-buildings
+- Send status and alert messages via email or SMS to a cell phone which is useful for monitoring home/vehicle/out-buildings
   - Email
   - SMS text message to your cell phone
+
+- Variable tone buzzer / alert
 
 PubScribe looks at the data type being published and provides the appropriate conversion from dictionary, list, or string to the native types supported by the underlying database or publish / subscribe software.
 
 # Software Installation
-## Step 1: Setup the Raspberry Pi Operating System.
+## Step 1: Install the Raspberry Pi Operating System.
 Here are the instructions to install the Raspberry Pi Operating System.
 [Raspberry Software Install Procedure](https://www.raspberrypi.org/software/operating-systems/)
 
@@ -68,6 +70,7 @@ If you desire, you may edit pubScribe.py and change the user configuration secti
     EMAIL_SMS_ENABLED = 1
     MQTT_ENABLED      = 0
     INFLUX_DB_ENABLED = 0
+    BUZZER_ENABLED = 0
 
 To connect
 
@@ -117,10 +120,10 @@ Then click on "Turn on access (not recommended)" by moving the slider to ON. The
 
 ![Figure 2: Enable Less Secure App Access](https://github.com/BrucesHobbies/pubScribe/blob/main/figures/Figure2.png)
 
-# Running The Program From A Terminal Window 
+# First Time Running The Program 
 When your first email is sent at program startup, Google will ask you to confirm that it is you. You will need to sign into the device email account that you created and go to the critical security email that Google sent you and confirm you originated the email before Google will allow emails to be sent from your Python program.
 
-Once you have created an account, start the pubScribeâ„¢ program.   Type:
+Once you have created an account, start the pubScribe program from a terminal window such as LXTERM. Type:
 
     python3 pubScribe.py
 
@@ -132,7 +135,7 @@ The first time the program starts up it will ask you for your email user id and 
     Enter password:
     password
 
-Next the program will ask you for the recipient email address.  This can either be the same email address, your primary email address or your SMS cell number carrierâ€™s gateway.  To email an SMS to your cell phone construct the recipient email depending on your cell phone carrier:
+Next the program will ask you for the recipient email address.  This can either be the same email address, your primary email address or your SMS cell number carrier's gateway.  To email an SMS to your cell phone construct the recipient email depending on your cell phone carrier:
 Carrier|Format
 -------|-------|
 AT&T|number@txt.att.net|
